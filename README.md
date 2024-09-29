@@ -229,7 +229,7 @@
             <label for="paymentMethod">Pilih Metode Pembayaran:</label>
             <select id="paymentMethod">
                 <option value="DANA">DANA - 083130783481 (RACHMAD FAREL RAMDHAN)</option>
-                <option value="GOPAY">GOPAY - 083130783481 (MASAREL STORE)</option>
+                <option value="SEABANK">SEABANK - 901099183656 (SERLI)</option>
             </select>
             <label for="whatsappNumber">Masukkan Nomor WhatsApp Anda:</label>
             <input type="text" id="whatsappNumber" placeholder="Contoh: 6281234567890" required>
