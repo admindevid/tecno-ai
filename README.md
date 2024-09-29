@@ -347,7 +347,7 @@
         };
 
         function openWhatsApp() {
-            window.open("https://wa.me/6283144282450", "_blank");
+            window.open("https://wa.me/6283130783481", "_blank");
         }
     </script>
 
