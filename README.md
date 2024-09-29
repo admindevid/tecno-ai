@@ -179,7 +179,7 @@
     <div id="productSection">
         <!-- Product A -->
         <div class="product">
-            <h3>EA Pile Produk A</h3>
+            <h3>Tecno AI Produk A</h3>
             <img src="https://i.ibb.co.com/bQNqRdm/computer-8188532-1280.webp" alt="Produk A">
             <p>Income: Rp40,000</p>
             <p>Profit: Rp20,000/hari</p>
@@ -190,7 +190,7 @@
 
         <!-- Product B -->
         <div class="product">
-            <h3>EA Pile Produk B</h3>
+            <h3>Tecno AI Produk B</h3>
             <img src="https://i.ibb.co.com/Nm81pyN/computer-8188531-1280.webp" alt="Produk B">
             <p>Income: Rp150,000</p>
             <p>Profit: Rp50,000/hari</p>
@@ -201,7 +201,7 @@
 
         <!-- Product C -->
         <div class="product">
-            <h3>EA Pile Produk C</h3>
+            <h3>Tecno AI Produk C</h3>
             <img src="https://i.ibb.co.com/6JscBPR/computer-8188538-1280.webp" alt="Produk C">
             <p>Income: Rp250,000</p>
             <p>Profit: Rp50,000/hari</p>
@@ -217,9 +217,10 @@
         <p>1. Pilih perangkat yang ingin dibeli pada halaman perangkat. Setiap perangkat memiliki rincian income, profit harian, dan waktu penggunaan yang ditampilkan di halaman.</p>
         <p>2. Klik tombol "Beli" pada perangkat yang diinginkan untuk memulai proses pembelian.</p>
         <p>3. Setelah itu, pilih metode pembayaran yang tersedia dan lakukan transfer.</p>
-        <p>4. Setelah pembayaran, unggah bukti transfer dengan menggunakan fitur upload bukti yang tersedia.</p>
-        <p>5. Setelah konfirmasi, perangkat akan mulai bekerja sesuai dengan waktu yang tertera. Income harian dan profit akan otomatis dihasilkan dari perangkat tersebut sesuai dengan informasi yang ada.</p>
-        <p>6. Profit harian dapat ditarik kapan saja setelah mencapai batas minimum yang telah ditentukan.</p>
+        <p>4. Setelah metode pembayaran, masukkan nomor WhatsApp anda dengan benar agar kami dapat menghubungi anda.</p>
+        <p>5. Setelah Memasukkan WhatsApp, unggah bukti transfer dengan menggunakan fitur upload bukti yang tersedia.</p>
+        <p>6. Setelah itu, perangkat akan mulai bekerja sesuai dengan waktu yang tertera. Income harian dan profit akan otomatis dihasilkan dari perangkat tersebut sesuai dengan informasi yang ada.</p>
+        <p>7. Profit harian dapat ditarik kapan saja setelah mencapai batas minimum yang telah ditentukan.</p>
     </div>
 
     <!-- Modal -->
