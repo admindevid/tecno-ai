@@ -182,7 +182,7 @@
             <h3>Tecno AI Produk A</h3>
             <img src="https://i.ibb.co.com/bQNqRdm/computer-8188532-1280.webp" alt="Produk A">
             <p>Income: Rp40,000</p>
-            <p>Profit: Rp20,000/hari</p>
+            <p>Profit: Rp20,000</p>
             <p>Waktu: 2 jam</p>
             <p class="price">Rp20,000</p>
             <button onclick="buyProduct('Produk A')">Beli</button>
